@@ -3,7 +3,7 @@ require_relative 'lib/store'
 
 unless AppConfig.has_key? :stats_collector
   AppConfig[:stats_collector] = {
-    schedule: '* * * * *',
+    schedule: '0 0 * * *',
     store: {
       class: 'ArchivesSpace::StatsCollector::DatabaseStore',
       config: AppConfig[:db_url]
