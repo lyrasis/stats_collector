@@ -1,4 +1,9 @@
--- USE THIS TO CREATE THE STATS TABLE IF NOT USING THE ARCHIVESSPACE DB
+-- USE THIS TO CREATE THE STATS DB / TABLE IF NOT USING THE ARCHIVESSPACE DB
+CREATE DATABASE statscollector CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'statscollector'@'%' IDENTIFIED BY 'password'; -- CHANGE PASSWORD
+GRANT ALL ON statscollector.* TO 'statscollector'@'%';
+
+USE statscollector;
 CREATE TABLE `stats_collector_data` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `application` varchar(255) NOT NULL DEFAULT 'archivesspace',
