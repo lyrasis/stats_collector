@@ -30,7 +30,8 @@ Class name for a store used to collect stats.
 
 #### Config
 
-Defines what is necessary to setup the store.
+Defines what is necessary to setup the store. The default config will
+use ArchivesSpace's own database to store data.
 
 Example for a custom MySQL database:
 
