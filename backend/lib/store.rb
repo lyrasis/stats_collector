@@ -4,9 +4,20 @@ module ArchivesSpace
       attr_reader :backend, :config, :destination
       def initialize(config: {})
         @backend = nil
-        @config  = config
+        @config  = build_config(config)
         @destination = set_destination(config)
         setup
+      end
+
+      def build_config(config)
+        return config unless config.respond_to? :fetch
+
+        parts = [
+          'jdbc:',
+          "#{config[:adapter]}://",
+          "#{config[:host]}:3306/",
+          "#{config[:database]}?user=#{config[:user]}&password=#{config[:password]}",
+        ].join
       end
 
       def save(data:)

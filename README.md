@@ -37,7 +37,7 @@ Example for a custom MySQL database:
 
 ```ruby
 config: {
-  adaptor: :mysql2,
+  adapter: :mysql,
   host: ENV.fetch('STATS_DB_HOST'),
   database: 'statscollector',
   user: ENV.fetch('STATS_DB_USER'),
