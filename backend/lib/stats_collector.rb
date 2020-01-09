@@ -20,10 +20,16 @@ module ArchivesSpace
       d = {}
       db.open do |aspacedb|
         d[:accession] = aspacedb[:accession].count
+        d[:agent_corporate_entity] = aspacedb[:agent_corporate_entity].count
+        d[:agent_family] = aspacedb[:agent_family].count
+        d[:agent_person] = aspacedb[:agent_person].count
+        d[:agent_software] = aspacedb[:agent_software].count
         d[:archival_object] = aspacedb[:archival_object].count
         d[:digital_object] = aspacedb[:digital_object].count
+        d[:digital_object_component] = aspacedb[:digital_object_component].count
         d[:location] = aspacedb[:location].count
         d[:repository] = aspacedb[:repository].where(hidden: 0).count
+        d[:resource] = aspacedb[:resource].count
         d[:subject] = aspacedb[:subject].count
         d[:top_container] = aspacedb[:top_container].count
         d[:user] = aspacedb[:user].where(is_system_user: 0).count
